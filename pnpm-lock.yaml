@@ -1,0 +1,5 @@
+dependencies:
+  '@grunmouse/hub': 'link:../hub'
+lockfileVersion: 5.1
+specifiers:
+  '@grunmouse/hub': 'link:..\hub'
