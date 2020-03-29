@@ -4,6 +4,10 @@ const Dependenced = require('./abstract-dependenced.js');
 /**
  * Представляет массив зависимостей
  * Результатом является массив значений
+ *
+ * Реализует методы изменения массива, которые применяются к массиву зависимостей,
+ * при этом происходит подписка на добавляемые зависимости и отписка от удаляемых.
+ * При любых изменениях (в т.ч. сортировке) значение инвалидируется
  */
 class ArrayDeps extends Dependenced{
 	
@@ -41,6 +45,15 @@ class ArrayDeps extends Dependenced{
 		this.invalidate();
 	}
 	
+	splice(...arr){
+		let dep = this.deps.splice(...arr);
+		this._unbind(dep);
+		if(arr.length>2){
+			this._bind(arr.slice(2));
+		}
+		this.invalidate();
+		return dep;
+	}
 	
 }
 
