@@ -1,4 +1,4 @@
-let Hub = require('@rakov/hub');
+let Hub = require('@grunmouse/hub');
 
 /**
  * Абстрактный базовый класс переменной,  
